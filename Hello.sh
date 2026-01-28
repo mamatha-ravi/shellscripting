@@ -23,5 +23,7 @@ if [ $remainder -eq 0 ]; then
 echo "not prime"
 exit1
 fi
+done
 echo "$num is prime"
+
 
