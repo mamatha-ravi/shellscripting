@@ -11,4 +11,17 @@
 # echo "$num is even"
 # fi
 
-[ $(( $1 % 2 )) -eq 0 ] && echo "Even" || echo "Odd"
+# [ $(( $1 % 2 )) -eq 0 ] && echo "Even" || echo "Odd"
+num=$1
+if [ $num -le 1 ]; then
+echo "not prime"
+exit1
+fi
+for (( i=2 ; i<=$num; i++)); do
+remainder=$(($num % i))
+if [ $remainder -eq 0 ]; then
+echo "not prime"
+exit1
+fi
+echo "$num is prime"
+
