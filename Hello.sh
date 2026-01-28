@@ -2,11 +2,13 @@
 # echo "Hello, World!"
 # echo "this is me"
 
-num=$1
-remainder=$(($num %2 ))
-if [ $remainder -ne 0 ]; then
-echo "$num is odd number"
-exit 1
-else 
-echo "$num is even"
-fi
+# num=$1
+# remainder=$(($num %2 ))
+# if [ $remainder -ne 0 ]; then
+# echo "$num is odd number"
+# exit 1
+# else 
+# echo "$num is even"
+# fi
+
+[ $(( $1 % 2 )) -eq 0 ] && echo "Even" || echo "Odd"
