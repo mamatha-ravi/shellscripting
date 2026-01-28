@@ -15,13 +15,13 @@
 num=$1
 if [ $num -le 1 ]; then
 echo "not prime"
-exit1
+exit 1
 fi
 for (( i=2 ; i<=$num; i++)); do
 remainder=$(($num % i))
 if [ $remainder -eq 0 ]; then
 echo "not prime"
-exit1
+exit 1
 fi
 done
 echo "$num is prime"
