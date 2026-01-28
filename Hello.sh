@@ -9,3 +9,4 @@ echo "$num is odd number"
 exit 1
 else 
 echo "$num is even"
+fi
