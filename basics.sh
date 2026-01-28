@@ -1,6 +1,6 @@
 #!/bin/bash
-name1="Sai"
-name2="Kiran"
+name1=$1
+name2=$2
 echo "$name1:: Hello, $name2"
 echo  "$name2:: Hello, $name1"
 echo "$name1:: How r u?"
