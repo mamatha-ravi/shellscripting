@@ -6,7 +6,7 @@ if($num1>$num2) then
 
 sum=$((num1+num2))    #sum=$(($num1+$num2))  this is also correct
 echo "sum of $num1 and $num2 is : $sum"
-elif($num1==$num2)
+elif($num1==$num2) then
 echo "both numbers are eaqual"
 
 else 
