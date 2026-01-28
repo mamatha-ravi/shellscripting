@@ -1,13 +1,14 @@
 #!/bin/bash\
 
 userid=$(id -u)
-if [ $userid -e 0 ]; then
+if [ $userid -eq 0 ]; then
 echo "installing ngninx"
-dnf install ngnix -y
+dnf install nginx -y
 else
 echo "this is not sudo user"
+exit 1
 fi
-if [ $? -e 0 ]; then
+if [ $? -eq 0 ]; then
 echo "success"
 else
 echo "Failure"
