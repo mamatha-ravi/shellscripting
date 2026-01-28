@@ -5,6 +5,7 @@ num2=$2
 if [ $num1 -gt $num2 ]; then
 sum=$((num1+num2))    #sum=$(($num1+$num2))  this is also correct
 echo "sum of $num1 and $num2 is : $sum"
+exit 1
 elif [ $num1 -eq $num2 ]; then
 echo "both numbers are eaqual"
 
