@@ -21,9 +21,9 @@
 echo "all args passed to scripts : $@"
 echo "count of args in the script: $#"
 echo "script name :$0"
-echo "present directory: $pwd"
-echo "who is running username : $user"
-echo "home directory of current user : $home"
+echo "present directory: $PWD"               # PWD,USER,HOME should be in capital letters
+echo "who is running username : $USER"
+echo "home directory of current user : $HOME"
 echo "pid of the script : $$"
 sleep 10 &
 echo "pid of recently executed background process : $!"
