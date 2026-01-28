@@ -1,7 +1,7 @@
 #!/bin/bash\
 
-
-if [ id -u -e 0 ]; then
+userid=$(id -u)
+if [ $userid -e 0 ]; then
 echo "installing ngninx"
 dnf install ngnix -y
 else
