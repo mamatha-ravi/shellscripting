@@ -4,7 +4,7 @@
 
 num=$1
 remiander=$(($num %2 ))
-if [ "$remainder" -ne 0 ]; then
+if [ $remainder -ne 0 ]; then
 echo "$num is odd number"
 exit 1
 else 
