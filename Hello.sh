@@ -14,13 +14,13 @@
 # [ $(( $1 % 2 )) -eq 0 ] && echo "Even" || echo "Odd"
 num=$1
 if [ $num -le 1 ]; then
-echo "not prime"
+echo "$num is less than 1 not prime"
 exit 1
 fi
 for (( i=2 ; i<=$num; i++)); do
 remainder=$(($num % i))
 if [ $remainder -eq 0 ]; then
-echo "not prime"
+echo "$num not prime"
 exit 1
 fi
 done
