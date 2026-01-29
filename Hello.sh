@@ -27,7 +27,7 @@ exit 1
 fi
 done
 echo "$num is prime"
-for i in (2..10); do
+for i in {2..10}; do
 echo "$i"
 done
 
