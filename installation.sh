@@ -1,5 +1,5 @@
 #!/bin/bash
-Userid=$((id -u))
+Userid=$(id -u)
 id=$?
 log_folder="/var/log/shellscript"
 log_file="/var/log/shellscript/$0.log"
