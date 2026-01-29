@@ -27,7 +27,7 @@ for Package in $@
 do
 dnf list installed $Package &>> $log_file
 if [ $id -eq 0 ];then
-echo -e "$Y $Package is already installed $N" | tee -a $log_file
+echo  "$Package is already installed" | tee -a $log_file
 else
 echo "installing $Package"
 dnf install $Package -y &>> $log_file
