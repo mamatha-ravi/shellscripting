@@ -19,7 +19,13 @@ fi
 
 for Package in $@
 do
+dnf list installed $Package
+if [ $id -eq 0 ];then
+echo "$Package is already installed"
+exit 1
+else
 echo "installing $Package"
 dnf install $Package -y &>> $log_file
 validate $Package
+fi
 done
