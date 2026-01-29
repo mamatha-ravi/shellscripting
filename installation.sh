@@ -3,6 +3,10 @@ Userid=$((id -u))
 id=$?
 log_folder="/var/log/shellscript"
 log_file="/var/log/shellscript/$0.log"
+if [ $Userid -ne 0 ]; then
+echo "this is not sudo user" | tee -a $log_file
+exit 1
+fi
 mkdir -p $log_folder
 # Package=$1
 validate (){
@@ -12,10 +16,7 @@ else
 echo "$Package installation failure" | tee -a $log_file
 fi
 }
-if [ $Userid -ne 0 ]; then
-echo "this is not sudo user" | tee -a $log_file
-exit 1
-fi
+
 for Package in $@
 do
 echo "installing $Package"
