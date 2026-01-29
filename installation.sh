@@ -3,7 +3,6 @@ Userid=$((id -u))
 id=$?
 Package=$1
 validate (){
-
     if [ $id -eq 0 ]; then 
 echo "$Package installation Success"
 else 
@@ -14,6 +13,7 @@ if [ $Userid -ne 0 ]; then
 echo "this is not sudo user"
 exit 1
 fi
-echo "installing nginx"
+
+echo "installing $Package"
 dnf install $Package -y
 validate $Package
