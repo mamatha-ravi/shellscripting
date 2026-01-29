@@ -10,7 +10,7 @@ N='\e[0m'   # No Color
 log_folder="/var/log/shellscript"
 log_file="/var/log/shellscript/$0.log"
 if [ $Userid -ne 0 ]; then
-echo "$Rthis is not sudo user $N" | tee -a $log_file
+echo "$R this is not sudo user $N" | tee -a $log_file
 exit 1
 fi
 mkdir -p $log_folder
