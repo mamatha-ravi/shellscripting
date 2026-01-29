@@ -7,8 +7,8 @@ echo "this is not sudo user"
 exit 1
 fi
 echo "installing nginx"
-dnf install nginx -y
-validate $1
+dnf install $Package -y
+validate $Package
 validate (){
 
     if [ $id -eq 0 ]; then 
