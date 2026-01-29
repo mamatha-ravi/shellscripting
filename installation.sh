@@ -13,7 +13,9 @@ if [ $Userid -ne 0 ]; then
 echo "this is not sudo user"
 exit 1
 fi
-
+for $Package in $@
+do
 echo "installing $Package"
-dnf install $Package -y
+dnf install $Package -y 
 validate $Package
+done
