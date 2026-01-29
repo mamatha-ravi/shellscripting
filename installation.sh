@@ -12,8 +12,8 @@ validate $Package
 validate (){
 
     if [ $id -eq 0 ]; then 
-echo "$1 installation Success"
+echo "$Package installation Success"
 else 
-echo "$1 installation failure"
+echo "$Package installation failure"
 fi
 }
