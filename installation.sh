@@ -1,7 +1,7 @@
 #!/bin/bash
 Userid=$((id -u))
 id=$?
-Package=$1
+# Package=$1
 validate (){
     if [ $id -eq 0 ]; then 
 echo "$Package installation Success"
@@ -13,7 +13,7 @@ if [ $Userid -ne 0 ]; then
 echo "this is not sudo user"
 exit 1
 fi
-for $Package in $@
+for Package in $@
 do
 echo "installing $Package"
 dnf install $Package -y 
