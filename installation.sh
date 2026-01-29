@@ -1,6 +1,9 @@
 #!/bin/bash
 Userid=$((id -u))
 id=$?
+log_folder="/var/log/shellscript"
+log_file="/var/log/shellscript/$0.log"
+mkdir -p $log_folder
 # Package=$1
 validate (){
     if [ $id -eq 0 ]; then 
@@ -16,6 +19,6 @@ fi
 for Package in $@
 do
 echo "installing $Package"
-dnf install $Package -y 
+dnf install $Package -y &>> $log_file
 validate $Package
 done
