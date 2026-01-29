@@ -16,7 +16,7 @@ fi
 mkdir -p $log_folder
 # Package=$1
 validate (){
-    if [ $id -eq 0 ]; then 
+    if [ $? -eq 0 ]; then 
 echo -e "$Package installation $G Success $N" | tee -a $log_file
 else 
 echo -e "$Package installation $R failure $N" | tee -a $log_file
@@ -27,7 +27,7 @@ for Package in $@
 do
 dnf list installed $Package &>> $log_file
 if [ $? -eq 0 ];then
-echo  "$Package is already installed" | tee -a $log_file
+echo  -e "$Y $Package is already installed $N" | tee -a $log_file
 else
 echo "installing $Package"
 dnf install $Package -y &>> $log_file
