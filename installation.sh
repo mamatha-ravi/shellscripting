@@ -1,10 +1,16 @@
 #!/bin/bash
 Userid=$(id -u)
 id=$?
+R='\e[31m'
+G='\e[32m'
+Y='\e[33m'
+B='\e[34m'
+N='\e[0m'   # No Color
+
 log_folder="/var/log/shellscript"
 log_file="/var/log/shellscript/$0.log"
 if [ $Userid -ne 0 ]; then
-echo "this is not sudo user" | tee -a $log_file
+echo "$Rthis is not sudo user $N" | tee -a $log_file
 exit 1
 fi
 mkdir -p $log_folder
@@ -21,7 +27,7 @@ for Package in $@
 do
 dnf list installed $Package &>> $log_file
 if [ $id -eq 0 ];then
-echo "$Package is already installed" | tee -a $log_file
+echo -e "$Y $Package is already installed $N" | tee -a $log_file
 else
 echo "installing $Package"
 dnf install $Package -y &>> $log_file
