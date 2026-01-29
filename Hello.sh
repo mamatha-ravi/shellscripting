@@ -17,7 +17,8 @@ if [ $num -le 1 ]; then
 echo "$num is less than 1 not prime"
 exit 1
 fi
-for (( i=2 ; i<$num; i++)); do
+# for (( i=2 ; i<$num; i++)); do
+for i in (2..$((num-1))); do
 remainder=$(($num % i))
 if [ $remainder -eq 0 ]; then
 echo "$num not prime"
