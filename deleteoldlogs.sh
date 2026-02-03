@@ -1,10 +1,17 @@
 #!/bin/bash
-DIR=" /home/ec2-user/app-log"
-deletefiles=$(find $DIR -type f -name "*.log" -mtime +7 )
-# find /path/to/directory -type f -mtime +7 -delete
-echo "delete files: $deletefiles"
-while IFS= read -r file;
- do
- echo "$file"
- read -p "you want to delete $file yes/no" confirm
- done <<< $deletefiles
+DIR="/home/ec2-user/app-log"
+
+ Deletefile=$(find "$DIR" -type f -name "*.log" -mtime +7) 
+while IFS= read -r file
+do
+  echo "File found: $file"
+  read -p "Do you want to delete $file? (yes/no): " confirm
+
+  if [ "$confirm" = "yes" ]; then
+    # rm -f "$file"
+    echo "Deleted $file"
+  else
+    echo "Skipped $file"
+  fi
+done <<< $Deletefile
+
