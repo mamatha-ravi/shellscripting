@@ -8,7 +8,7 @@ do
   read -p "Do you want to delete $file? (yes/no): " confirm
 
   if [ "$confirm" = "yes" ]; then
-    # rm -f "$file"
+     rm -f "$file"
     echo "Deleted $file"
   else
     echo "Skipped $file"
