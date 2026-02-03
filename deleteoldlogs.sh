@@ -6,7 +6,7 @@ while IFS= read -r file
 do
   echo "File found: $file"
   rm -f "$file"
-  echo "deletedv : $file"
+  echo "$file is deleted "
   done <<< $Deletefile
 
 # DIR="/home/ec2-user/app-log"
