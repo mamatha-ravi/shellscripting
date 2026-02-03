@@ -6,5 +6,5 @@ echo "delete files: $deletefiles"
 while IFS= read -r file;
  do
  echo "$file"
- read "you want to delete $file yes/no" confirm
+ read -p "you want to delete $file yes/no" confirm
  done <<< $deletefiles
