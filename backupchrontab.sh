@@ -28,12 +28,12 @@ if [ $# -lt 2 ]; then
 USAGE
 exit 1
 fi
-if [! -d "$source_dir"]; then
+if [ ! -d "$source_dir"]; then
 log -e "$R $source_dir source directory is not a directory $N"
 exit 1
 fi
 
-if [! -d "$destination_dir" ]; then
+if [ ! -d "$destination_dir" ]; then
 log -e "$R $destination_dir source directory is not a directory $N"
 exit 1
 fi
