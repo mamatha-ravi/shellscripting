@@ -50,7 +50,7 @@ exit 1
 else 
 time=$(date "+%F %H:%M:%S")
 zip_file="$destination_dir/app-log-time.tar.gz"
-tar -czvf $zip_file $delete_files
+tar -czvf $zip_file $(find $source_dir -type f -name "*.log" -mtime +$days)
 if [ -f "$zip_file" ]; then
 log "$G archival is ...success $N"
 fi
