@@ -59,6 +59,6 @@ do
 log "ready to delete files $file"
 rm -i $file
 done <<< $delete_files
-log -e "$R there are no files to delete $N"
+log "$R there are no files to delete $N"
 fi
 
