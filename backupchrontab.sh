@@ -54,13 +54,15 @@ zip_file="$destination_dir/app-log-time.tar.gz"
 tar -czvf $zip_file $(find $source_dir -type f -name "*.log" -mtime +$days)
 if [ -f "$zip_file" ]; then
 log "$G archival is ...success $N"
-fi
+
 while IFS= read -r file
 do
 log "ready to delete files $file"
 rm -f $file
 log "deleted $file"
 done <<< $delete_files
-# log "$R there are no files to delete $N"
-# fi
+else
+log "$R archival is failure $N"
+exit 1
+ fi
 
