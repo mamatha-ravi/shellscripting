@@ -57,7 +57,7 @@ fi
 while IFS= read -r file
 do
 log "ready to delete files $file"
-rm -i $file
+rm -f $file
 done <<< $delete_files
 log "$R there are no files to delete $N"
 fi
