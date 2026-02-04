@@ -39,7 +39,7 @@ exit 1
 fi
 
 delete_files=$(find $source_dir -type f -name "*.log" -mtime +$days)
-log -e "delete files are $delete_files"
+log "delete files are $delete_files"
 log "backup started"
 log "source directory: $source_dir"
 log "destination directory : $destination_dir"
@@ -51,7 +51,7 @@ else
 time=$(date "+%F %H:%M:%S")
 zip_file="$destination_dir/app-log-time.tar.gz"
 tar -czvf $zip_file $delete_files
-if [-f "$zip_file" ]; then
+if [ -f "$zip_file" ]; then
 log "$G archival is ...success $N"
 fi
 while IFS= read -r file
