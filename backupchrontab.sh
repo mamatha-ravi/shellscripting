@@ -28,7 +28,7 @@ if [ $# -lt 2 ]; then
 USAGE
 exit 1
 fi
-if [ ! -d "$source_dir"]; then
+if [ ! -d "$source_dir" ]; then
 log -e "$R $source_dir source directory is not a directory $N"
 exit 1
 fi
@@ -38,13 +38,13 @@ log -e "$R $destination_dir source directory is not a directory $N"
 exit 1
 fi
 
-delete_files=$(find $source_dir -type f -name "*.log" -mtime +14)
+delete_files=$(find $source_dir -type f -name "*.log" -mtime +$days)
 log -e "delete files are $delete_files"
 log "backup started"
 log "source directory: $source_dir"
 log "destination directory : $destination_dir"
 log "days : $days"
-if [ -z $delete_files]; then
+if [ -z $delete_files ]; then
 log -e "$R $delete_files file is empty $N"
 exit 1
 else 
