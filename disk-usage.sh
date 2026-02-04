@@ -14,4 +14,5 @@ partition=$(df -hT | grep -v Filesystem | awk '{print $7}')
 if [ $usage -gt $usage_threshold ]; then
 message+="high disk utilization in $partition : $usage"
 fi
+done
 echo "message"
