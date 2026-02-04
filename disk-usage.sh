@@ -1,0 +1,17 @@
+#!/bin/bash
+R='\e[31m'
+G='\e[32m'
+Y='\e[33m'
+B='\e[34m'
+N='\e[0m'   # No Color
+
+usage_threshold=5
+Disk_usage=$(df -hT | grep -v Filesystem)
+while IFS= read -r logs
+do
+usage=$($Disk_usage | awk '{print $6}' | cut -d "%" -f1)
+partition=$(df -hT | grep -v Filesystem | awk '{print $7}')
+if [ $usage -gt $usage_threshold ]; then
+message+="high disk utilization in $partition : $usage"
+fi
+echo "message"
