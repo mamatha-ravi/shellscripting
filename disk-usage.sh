@@ -10,9 +10,9 @@ usage_threshold=5
 Disk_usage=$(df -hT | grep -v Filesystem)
 while IFS= read -r logs
 do
-usage=$(echo $line | awk '{print $6}' | cut -d "%" -f1)
-partition=$(echo $line | awk '{print $7}')
-if [ "$usage" -ge "$usage_threshold" ]; then
+usage=$(echo $logs | awk '{print $6}' | cut -d "%" -f1)
+partition=$(echo $logs | awk '{print $7}')
+if [ "$usage" -gt "$usage_threshold" ]; then
 message+="high disk utilization in $partition : $usage% /n"
 fi
 done <<< $Disk_usage
