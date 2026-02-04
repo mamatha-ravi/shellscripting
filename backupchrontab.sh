@@ -51,7 +51,7 @@ else
 time=$(date "+%F %H:%M:%S")
 zip_file="$destination_dir/app-log-time.tar.gz"
 tar -czvf $zip_file $delete_files
-if [-f $zip_file]; then
+if [-f "$zip_file" ]; then
 log "$G archival is ...success $N"
 fi
 while IFS= read -r file
