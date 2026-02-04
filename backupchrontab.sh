@@ -47,7 +47,8 @@ log "days : $days"
 if [ -z "$delete_files" ]; then
 log -e "$R $delete_files file is empty $N"
 exit 1
-else 
+fi
+
 time=$(date "+%F %H:%M:%S")
 zip_file="$destination_dir/app-log-time.tar.gz"
 tar -czvf $zip_file $(find $source_dir -type f -name "*.log" -mtime +$days)
@@ -58,7 +59,8 @@ while IFS= read -r file
 do
 log "ready to delete files $file"
 rm -f $file
+log "deleted $file"
 done <<< $delete_files
-log "$R there are no files to delete $N"
-fi
+# log "$R there are no files to delete $N"
+# fi
 
