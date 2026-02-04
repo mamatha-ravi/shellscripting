@@ -4,6 +4,7 @@ G='\e[32m'
 Y='\e[33m'
 B='\e[34m'
 N='\e[0m'   # No Color
+message=""
 
 usage_threshold=5
 Disk_usage=$(df -hT | grep -v Filesystem)
