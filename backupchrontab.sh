@@ -11,7 +11,7 @@ destination_dir=$2
 days=${3:-14} # 14 days is the default value, if the user not supplied
 log_folder="var/log/shellscripting"
 log_file="$log_folder/backup.log"
-mkdir -p logfolder
+mkdir -p $log_folder
 log(){
     echo -e "$(date "+%F %H:%M:%S") : $1" | tee -a $log_file
 }
@@ -28,17 +28,17 @@ if [ $# -lt 2 ]; then
 USAGE
 exit 1
 fi
-if [! -d $source_dir]; then
+if [! -d "$source_dir"]; then
 log -e "$R $source_dir source directory is not a directory $N"
 exit 1
 fi
 
-if [! -d $destination_dir]; then
+if [! -d "$destination_dir" ]; then
 log -e "$R $destination_dir source directory is not a directory $N"
 exit 1
 fi
 
-delete_files=$(find $source_dir -type f -name "*/log" -mtime +14)
+delete_files=$(find $source_dir -type f -name "*.log" -mtime +14)
 log -e "delete files are $delete_files"
 log "backup started"
 log "source directory: $source_dir"
