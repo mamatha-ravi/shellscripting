@@ -14,7 +14,7 @@
 #   done <<< $Deletefile
 
 DIR="/home/ec2-user/app-log"
-if ! find "$DIR" -type f -name "*.log" -mtime +7 ; then
+if ! find "$DIR" -type f -name "*.log" -mtime +7 | read -r ; then
   echo "No old log files found. Exiting..."
   exit 0
 fi
