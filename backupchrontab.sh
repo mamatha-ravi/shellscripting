@@ -39,7 +39,7 @@ exit 1
 fi
 
 delete_files=$(find $source_dir -type f -name "*.log" -mtime +$days)
-log "delete files are $delete_files"
+log "delete files are : $delete_files"
 log "backup started"
 log "source directory: $source_dir"
 log "destination directory : $destination_dir"
@@ -57,7 +57,7 @@ fi
 while IFS= read -r file
 do
 log "ready to delete files $file"
-# rm -i $file
+rm -i $file
 done <<< $delete_files
 log -e "$R there are no files to delete $N"
 fi
