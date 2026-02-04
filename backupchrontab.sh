@@ -16,7 +16,7 @@ log(){
     echo -e "$(date "+%F %H:%M:%S") : $1" | tee -a $log_file
 }
 if [ $Userid -ne 0 ]; then
-log -e "$R please run this script using root user"
+log  "$R please run this script using root user $N"
 exit 1
 fi
 USAGE(){
@@ -44,7 +44,7 @@ log "backup started"
 log "source directory: $source_dir"
 log "destination directory : $destination_dir"
 log "days : $days"
-if [ -z $delete_files ]; then
+if [ -z "$delete_files" ]; then
 log -e "$R $delete_files file is empty $N"
 exit 1
 else 
