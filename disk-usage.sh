@@ -11,7 +11,7 @@ while IFS= read -r logs
 do
 usage=$(echo $line | awk '{print $6}' | cut -d "%" -f1)
 partition=$(echo $line | awk '{print $7}')
-if [ "$usage" -gt "$usage_threshold" ]; then
+if [ "$usage" -ge "$usage_threshold" ]; then
 message+="high disk utilization in $partition : $usage"
 fi
 done <<< $Disk_usage
